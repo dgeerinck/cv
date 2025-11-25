@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>CV - David Geerinck</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Police moderne Google Fonts (optionnel si pas de connexion internet) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f5f7fb;
+            --card-bg: #ffffff;
+            --accent: #2563eb;
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            padding: 24px;
+        }
+
+        .page {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            padding: 28px 32px 20px;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(135deg, #eff6ff, #f9fafb);
+        }
+
+        .avatar {
+            flex: 0 0 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 24px;
+        }
+
+        .avatar img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #e0ecff;
+        }
+
+        .header-text {
+            flex: 1;
+        }
+
+        .name {
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 6px;
+        }
+
+        .title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .contact span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 0;
+        }
+
+        aside {
+            border-right: 1px solid var(--border);
+            background: #f9fafb;
+            padding: 24px 24px 28px;
+        }
+
+        .content {
+            padding: 24px 32px 28px;
+        }
+
+        h2.section-title {
+            font-size: 0.98rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .section-block {
+            margin-bottom: 22px;
+        }
+
+        .chip-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .chip {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 999px;
+            background: #e5edff;
+            color: #1d4ed8;
+            border: 1px solid #d0e2ff;
+            white-space: nowrap;
+        }
+
+        .text-sm {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--text-main);
+        }
+
+        .muted {
+            color: var(--text-muted);
+            font-size: 0.86rem;
+        }
+
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .lang-level {
+            color: var(--text-muted);
+        }
+
+        .exp-block {
+            margin-bottom: 20px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+        }
+
+        .exp-title {
+            font-weight: 600;
+        }
+
+        .exp-company {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .exp-dates {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .exp-tags {
+            margin-top: 6px;
+        }
+
+        ul {
+            margin-top: 6px;
+            padding-left: 18px;
+        }
+
+        ul li {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 4px;
+        }
+
+        .profile-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .profile-card {
+            background: linear-gradient(180deg, rgba(37,99,235,0.04), rgba(245,247,255,0.6));
+            border: 1px solid rgba(37,99,235,0.08);
+            padding: 18px 20px;
+            border-radius: 10px;
+            margin-bottom: 18px;
+        }
+
+        .profile-card .section-title { color: #1f2937; margin-bottom: 8px; }
+
+        .two-col-skills {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px 24px;
+            margin-top: 8px;
+        }
+
+        .skill-item {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 800px) {
+            body {
+                padding: 8px;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .avatar {
+                margin-right: 0;
+                margin-bottom: 12px;
+            }
+
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            aside {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+        }
+
+        /* Optimisation impression */
+        @media print {
+            body {
+                background: #ffffff;
+                padding: 0;
+            }
+            .page {
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <header>
+        <div class="avatar">
+            <img src="PicDavidG.jpg" alt="Photo de profil">
+        </div>
+        <div class="header-text">
+            <div class="name">David Geerinck</div>
+            <div class="title">Concepteur de solutions data &amp; IT</div>
+            <div class="contact">
+                <span>Meux, Belgique</span>
+                <span><a href="mailto:dgeerinck@yahoo.com">dgeerinck@yahoo.com</a></span>
+                <span><a href="tel:+32498048464">+32 498 04 84 64</a></span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Colonne de gauche -->
+        <aside>
+            
+
+            <section class="section-block">
+                <h2 class="section-title">Compétences clés</h2>
+                <div class="two-col-skills">
+                    <div class="skill-item">
+                        Architecture et automatisation de systèmes décisionnels (ETL, DWH, BI)
+                    </div>
+                    <div class="skill-item">
+                        Gouvernance des données et amélioration continue
+                    </div>
+                    <div class="skill-item">
+                        Intégration d’environnements hétérogènes (santé, institutions, retail, ITSM)
+                    </div>
+                    <div class="skill-item">
+                        Analyse de performance &amp; conformité QSE (ISO&nbsp;9001 / 14001)
+                    </div>
+                    <div class="skill-item">
+                        Prototypage rapide low‑code et solutions IA (LLM, NLP)
+                    </div>
+                    <div class="skill-item">
+                        Communication claire des insights (visualisation, vulgarisation, diffusion)
+                    </div>
+                    <div class="skill-item">
+                        Coordination technique et amélioration des processus transverses
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-block">
+                <h2 class="section-title">Stack &amp; outils</h2>
+                <div class="chip-list">
+                    <span class="chip">Azure Data Factory</span>
+                    <span class="chip">Azure Cloud</span>
+                    <span class="chip">Power BI</span>
+                    <span class="chip">Azure AutoML Text</span>
+                    <span class="chip">Streamlit</span>
+                    <span class="chip">LlamaIndex</span>
+                    <span class="chip">Neo4j</span>
+                    <span class="chip">Delphi</span>
+                    <span class="chip">SQL</span>
+                    <span class="chip">Linux</span>
+                    <span class="chip">Virtualisation</span>
+                </div>
+            </section>
+
+            <section class="section-block">
+                <h2 class="section-title">Formation</h2>
+
+                <div class="text-sm" style="margin-bottom:10px;">
+                    <strong>Systèmes de Management QSE Intégrés</strong><br>
+                    <span class="muted">Formation en cours – Système de management intégré Qualité‑Sécurité‑Environnement</span>
+                </div>
+
+                <div class="text-sm">
+                    <strong>Ingénieur Industriel ICT</strong><br>
+                    <span class="muted">Erasmus Hogeschool Brussel</span><br>
+                    <span class="muted">
+                        TFE : Pilotage d’un process industriel par analyses statistiques temps réel (Philips Hasselt).<br>
+                        Stages chez Fortis AG (VoIP) &amp; Volkswagen (CAM‑Bus Bridge).
+                    </span>
+                </div>
+            </section>
+
+            <section class="section-block">
+                <h2 class="section-title">Langues</h2>
+                <div class="lang-item">
+                    <span>Français</span>
+                    <span class="lang-level">Langue maternelle</span>
+                </div>
+                <div class="lang-item">
+                    <span>Néerlandais</span>
+                    <span class="lang-level">Langue maternelle</span>
+                </div>
+                <div class="lang-item">
+                    <span>Anglais</span>
+                    <span class="lang-level">Professionnel (lu, écrit, parlé)</span>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Colonne de droite -->
+        <section class="content">
+                    <section class="profile-card">
+                <h2 class="section-title">Profil</h2>
+                <p class="profile-text">
+                    Ingénieur industriel ICT avec plus de 15 ans d’expérience, je conçois des solutions data robustes
+                    et activables sur toute la chaîne de valeur&nbsp;: collecte, modélisation, intégration,
+                    visualisation, automatisation.
+                </p>
+                <p class="profile-text" style="margin-top:8px;">
+                    Mon expertise full‑stack se situe à l’intersection de la technologie, de l’analyse métier et
+                    de l’architecture de systèmes. Je transforme des environnements complexes en outils simples,
+                    compréhensibles et directement utiles aux utilisateurs.
+                </p>
+            </section>
+
+            <section class="section-block">
+                <h2 class="section-title">Expériences professionnelles</h2>
+
+
+                <div class="exp-block">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">Senior Data Analyst</div>
+                            <div class="exp-company">Agence du Numérique</div>
+                        </div>
+                        <div class="exp-dates">2022 – 2024</div>
+                    </div>
+                    <div class="exp-tags chip-list">
+                        <span class="chip">Azure Data Factory</span>
+                        <span class="chip">Power BI</span>
+                        <span class="chip">Datalake</span>
+                        <span class="chip">IA / LLM</span>
+                    </div>
+                                        <ul>
+                        <li>Pilotage d’un datalake sur Azure Cloud pour les projets numériques régionaux (Digiscore, Data4Wallonia, etc.).</li>
+                        <li>Orchestration de pipelines de données avec Azure Data Factory.</li>
+                        <li>Création de tableaux de bord Power BI interconnectés et diffusés à grande échelle, avec gouvernance des accès et automatisation de la distribution.</li>
+                        <li>Développement de modèles prédictifs et analytiques (Azure AutoML Text) pour l’analyse de métadonnées et prédiction d’indicateurs clés.</li>
+                        <li>Expérimentation et prototypage de solutions IA (chatbots LLM, Streamlit, LlamaIndex, semantic clustering) pour valorisation des contenus.</li>
+                        <li>Mise en place d’un monitoring et de bonnes pratiques CI/CD pour les pipelines, tests et documentation des livrables.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-block">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">BI Analyst / Developer</div>
+                            <div class="exp-company">Clinique Saint-Pierre Ottignies</div>
+                        </div>
+                        <div class="exp-dates">2019 – 2022</div>
+                    </div>
+                    <div class="exp-tags chip-list">
+                        <span class="chip">Power BI</span>
+                        <span class="chip">DWH</span>
+                        <span class="chip">INAMI</span>
+                    </div>
+                    <ul>
+                        <li>Refonte complète de l’environnement Microsoft BI : architecture, flux ETL, modèles de données et reportings.</li>
+                        <li>Création et maintenance de flux de données pour les informations patients, ressources humaines et déclarations INAMI.</li>
+                        <li>Coaching et formation des équipes sur les bonnes pratiques BI &amp; DWH (modélisation, nomenclature, performance).</li>
+                        <li>Support opérationnel et appui à la gestion de crise via des outils BI dédiés au "Plan d’Urgence Hôpital".</li>
+                    </ul>
+                </div>
+
+                <div class="exp-block">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">Knowledge Management Developer</div>
+                            <div class="exp-company">Smals</div>
+                        </div>
+                        <div class="exp-dates">2014 – 2019</div>
+                    </div>
+                    <div class="exp-tags chip-list">
+                        <span class="chip">Neo4j</span>
+                        <span class="chip">Knowledge Mgmt</span>
+                        <span class="chip">Intégration</span>
+                    </div>
+                    <ul>
+                        <li>Centralisation de données issues de systèmes IT, RH, comptabilité et virtualisation pour faciliter la recherche d’information.</li>
+                        <li>Cartographie des sources, standardisation des processus de monitoring et automatisation des collectes.</li>
+                        <li>Modélisation orientée graphes (Neo4j) pour le suivi des flux inter-systèmes et la visualisation des dépendances.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-block">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">Technical Coordinator</div>
+                            <div class="exp-company">Smals</div>
+                        </div>
+                        <div class="exp-dates">2012 – 2014</div>
+                    </div>
+                    <div class="exp-tags chip-list">
+                        <span class="chip">Support</span>
+                        <span class="chip">Disponibilité</span>
+                    </div>
+                    <ul>
+                        <li>Suivi technique de services critiques pour l’ONSS (Dimona, Student@Work, NovaPrima).</li>
+                        <li>Gestion d’incidents, coordination des équipes et optimisation de la disponibilité applicative.</li>
+                        <li>Mise en place de procédures de reprise et amélioration continue des indicateurs de service.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-block">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-title">IT Specialist</div>
+                            <div class="exp-company">Photohall</div>
+                        </div>
+                        <div class="exp-dates">2005 – 2012</div>
+                    </div>
+                    <div class="exp-tags chip-list">
+                        <span class="chip">Retail</span>
+                        <span class="chip">POS</span>
+                        <span class="chip">Delphi / SQL</span>
+                    </div>
+                    <ul>
+                        <li>Maîtrise du cycle de vie des données Retail (Point de Vente, Logistique, E‑commerce, SAP).</li>
+                        <li>Développement et maintenance du système de caisse POS (Delphi), intégration RFID, XML et bases SQL.</li>
+                        <li>Administration réseau (Linux VPN, SNMP, pare‑feu), ingénierie système (serveurs, sauvegardes, RBAC, virtualisation).</li>
+                        <li>Mise en place d’une architecture distribuée et stable pour plus de 100 magasins, amélioration des processus de déploiement.</li>
+                    </ul>
+                </div>
+
+            </section>
+        </section>
+    </main>
+</div>
+</body>
+</ht
